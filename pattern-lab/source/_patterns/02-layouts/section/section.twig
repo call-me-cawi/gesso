@@ -1,3 +1,12 @@
+{% if not classes %}
+  {% set classes = [] %}
+{% endif %}
+
+{# {{ attribute(additional_attributes, 'add_attributes') is defined ? 'yes' : 'no' }} #}
+{# {% if has_wrapper %}
+  <{{ element ?: "section" }} {{ add_attributes(additional_attributes) }}>
+{% endif %} #}
+
 {% if has_wrapper %}
   <{{ element ?: "section" }}{{- attributes.addClass(classes,'l-section')|raw -}}>
 {% endif %}

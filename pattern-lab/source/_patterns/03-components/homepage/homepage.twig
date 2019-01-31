@@ -4,6 +4,15 @@
 {% set classes =
   classes|merge(['homepage'])|join(' ')|trim
 %}
+
+  {# {% if not homepage_classes %}
+    {% set homepage_classes = [] %}
+  {% endif %}
+  {% set additional_attributes = {
+    "class": ["test"]|merge(homepage_classes),
+  } %}
+  <article {{ add_attributes(additional_attributes) }}> #}
+
 <article{{- attributes.addClass(classes)|raw -}}>
 
   {% include '@layouts/section/section.twig' with {
