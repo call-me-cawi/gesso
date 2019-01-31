@@ -52,11 +52,14 @@
   ]
 %}
 
+{% set attributes = attributes.addClass(classes) %}
+
 {% include '@components/homepage/homepage.twig' with {
   'homepage_hero_title':  content.field_hero.0['#paragraph'].field_headline.0.value,
   'homepage_hero_summary': content.field_hero.0['#paragraph'].field_subtitle.0.value,
   'homepage_hero_call_to_action_text': content.field_hero.0['#paragraph'].field_button.0.title,
   'homepage_hero_call_to_action_url': content.field_hero.0['#paragraph'].field_button.0.uri,
   'homepage_grid_titlelabel': 'Hello',
-  'homepage_grid_content': drupal_block('views_block:recent_films-block_1')
+  'homepage_grid_content': drupal_block('views_block:recent_films-block_1'),
+  'fields': content.field_test
 } %}

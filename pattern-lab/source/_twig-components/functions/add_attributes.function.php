@@ -2,6 +2,7 @@
 /**
  * @file
  * Add "add_attributes" function for Pattern Lab & Drupal
+ * https://github.com/drupal-pattern-lab/add-attributes-twig-extension
  */
 
 use Drupal\Core\Template\Attribute;

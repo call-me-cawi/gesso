@@ -1,4 +1,8 @@
-<{{ element ?: 'div' }}{{- attributes.addClass(classes)|raw -}}>
+{% set additional_attributes = {
+  "class": ["test-field"],
+} %}
+
+<{{ element ?: 'div' }}{{- add_attributes(additional_attributes) -}}>
   {% if not label_hidden %}
     <{{ label_element ?: 'h3' }}{{- title_attributes.addClass(title_classes)|raw -}}>{{ label }}</{{ label_element ?: 'h3' }}>
   {% endif %}

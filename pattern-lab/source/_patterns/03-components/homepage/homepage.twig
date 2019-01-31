@@ -1,19 +1,8 @@
-{% if not classes %}
-  {% set classes = [] %}
-{% endif %}
-{% set classes =
-  classes|merge(['homepage'])|join(' ')|trim
-%}
+{% set additional_attributes = {
+  "class": ["homepage"],
+} %}
 
-  {# {% if not homepage_classes %}
-    {% set homepage_classes = [] %}
-  {% endif %}
-  {% set additional_attributes = {
-    "class": ["test"]|merge(homepage_classes),
-  } %}
-  <article {{ add_attributes(additional_attributes) }}> #}
-
-<article{{- attributes.addClass(classes)|raw -}}>
+<article {{ add_attributes(additional_attributes) }}>
 
   {% include '@layouts/section/section.twig' with {
     'has_wrapper': true,
@@ -63,18 +52,18 @@
     'text': 'danger'
   } %}
 
-  {% include '@components/field/field.twig' with {
-    'element': "div",
-    'label': 'A Label',
-    'items': { 0: { content: "Some Content" } }
+  {% include '@layouts/section/section.twig' with {
+    'has_wrapper': true,
+    'has_constrain': false,
+    'has_label': true,
+    'label': 'Fields',
+    'has_content_wrapper': true,
+    'content': fields
   } %}
+
+  {{ fields|raw }}
 
 </article>
 
 
 
-
-
-
-
-  {# 'attributes': Attribute('class': { 0: 'field', 1: 'field--meta'}), #}
